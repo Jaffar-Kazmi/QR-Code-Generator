@@ -11,6 +11,8 @@ It allows users to input a valid URL, generates a QR code, and provides an optio
 - Responsive and clean UI with separate CSS files
 - Easy to deploy on platforms like Render or Railway
 
+## Live Demo
+[Click here to try it out](https://quickqr-boz7.onrender.com)
 ## Project Structure
 
 ```bash

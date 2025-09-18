@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <form action="/generate" method="POST" onsubmit="return validateForm()">
+            <input type="text" name="url" id="urlInput" placeholder="Enter a valid URL (e.g., https://example.com/page)" required>
+            <span id="errorMsg" class="error-message"></span>
+            <button type="submit">Generate QR Code</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function validateForm() {
+        const urlField = document.getElementById('urlInput');
+        const errorMsg = document.getElementById('errorMsg');
+        const url = urlField.value.trim();
+
+        const urlPattern = /^(https?:\/\/)([a-zA-Z0-9-]+\.)+[a-z]{2,}(\/[^\s]*)?$/i;
+
+        if (!urlPattern.test(url)) {
+            urlField.classList.add("invalid");
+            errorMsg.textContent = "Please enter a valid URL starting with http:// or https://";
+            return false;
+        }
+
+        urlField.classList.remove("invalid");
+        errorMsg.textContent = "";
+        return true;
+    }
+</script>
